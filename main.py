@@ -46,10 +46,14 @@ def correct_repeating():
                 if names[1] == name:
                     if second_name != '':
                         names[2] = second_name
-                    names[3] = organization
-                    names[4] = job
-                    names[5] = phone
-                    names[6] = email
+                    if organization != '':
+                        names[3] = organization
+                    if job != '':
+                        names[4] = job
+                    if phone != '':    
+                        names[5] = phone
+                    if email != '':
+                        names[6] = email
                     list_contacts = []
                 else:
                   continue
