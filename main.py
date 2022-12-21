@@ -20,17 +20,13 @@ def correct_name():
             column[0] = re.sub(name_pattern, name_substitution, line).split()[0]
             column[1] = re.sub(name_pattern, name_substitution, line).split()[1]
             column[2] = ''
-        elif len((re.sub(name_pattern, name_substitution, line).split())) == 1:
-            column[0] = re.sub(name_pattern, name_substitution, line).split()[0]
-            column[1] = ''
-            column[2] = ''
     return
 
 def correct_phone():
-    name_pattern = re.compile(r"(\+7|8{1})\s*\(?(\d{3})\)?[\s|-]*(\d{3})[\s|-]*(\d{2})[\s|-]*(\d+)(\s?)\(?(доб\.)?(\s?)(\d+)?(\)?)")
+    name_pattern = r"(\+7|8{1})\s*\(?(\d{3})\)?[\s|-]*(\d{3})[\s|-]*(\d{2})[\s|-]*(\d+)(\s?)\(?(доб\.)?(\s?)(\d+)?(\)?)"
     result = r"+7(\2)-\3-\4-\5\6\7\9"
     for column in contacts_list:
-        column[5] = name_pattern.sub(result,column[5])
+        column[5] = re.sub(name_pattern,result,column[5])
     return
 
 def correct_repeating():
