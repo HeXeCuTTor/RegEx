@@ -35,10 +35,7 @@ def correct_repeating():
     for column in contacts_list[1:]:
         surname = column[0]
         name = column[1]
-        if column[2] == '':
-            continue
-        else:
-            second_name = column[2]
+        second_name = column[2]
         organization = column[3]
         job = column[4]
         phone = column[5]
@@ -47,6 +44,8 @@ def correct_repeating():
         for names in contacts:
             if names[0] == surname:
                 if names[1] == name:
+                    if second_name != '':
+                        names[2] = second_name
                     names[3] = organization
                     names[4] = job
                     names[5] = phone
